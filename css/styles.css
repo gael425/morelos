@@ -1,0 +1,174 @@
+/* ==========================================================================
+   1. RESET Y VARIABLES GLOBALES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f6f8;
+    color: #2c3e50;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. HOME: ENCABEZADO Y COMPONENTES
+   ========================================================================== */
+.main-header {
+    background:
+        linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.25)),
+        url('../imagenes/portada2.jpg');
+    background-size: cover;
+    background-position: center 75%;
+    background-repeat: no-repeat;
+
+    height: 55vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-align: center;
+}
+
+.header-overlay h1 { font-size: 3rem; margin-bottom: 10px; }
+.header-overlay p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+.category-nav {
+    display: flex;
+    justify-content: center;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #4a5568;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover { background-color: #edf2f7; color: black; }
+
+/* ==========================================================================
+   3. HOME: DISEÑO DE TARJETAS (GRID)
+   ========================================================================== */
+.content-section { padding: 50px 0 20px 0; }
+.section-title { font-size: 2rem; padding-bottom: 10px; margin-bottom: 30px; border-bottom: 3px solid #16a085; }
+#balnearios .section-title { border-color: #2980b9; }
+#haciendas .section-title { border-color: #d35400; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border-top: 5px solid #16a085;
+    transition: transform 0.3s;
+}
+#balnearios .card { border-top-color: #2980b9; }
+#haciendas .card { border-top-color: #d35400; }
+
+.card:hover { transform: translateY(-5px); }
+.card-body { padding: 25px; display: flex; flex-direction: column; gap: 12px; }
+.location { font-size: 0.85rem; font-weight: 700; color: #a0aec0; text-transform: uppercase; }
+.short-desc { color: #4a5568; font-size: 0.95rem; }
+
+/* Botones de enlace en tarjetas */
+.info-link-btn {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #16a085;
+    margin-top: 10px;
+    display: inline-block;
+}
+#balnearios .info-link-btn { color: #2980b9; }
+#haciendas .info-link-btn { color: #d35400; }
+
+/* ==========================================================================
+   4. PÁGINA INTERNA: ESTILOS DE DETALLE
+   ========================================================================== */
+.back-nav { background: #1a202c; padding: 12px 0; }
+.back-btn { color: #cbd5e1; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.back-btn:hover { color: white; }
+
+.detail-hero { background: #2c3e50; padding: 60px 0; color: white; }
+.category-badge { background: #16a085; padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+.detail-hero h1 { font-size: 2.5rem; margin: 15px 0 8px 0; line-height: 1.2; }
+.detail-location { color: #cbd5e1; font-size: 1.05rem; }
+
+/* Sección Galería */
+.gallery-section { margin: 40px 0; }
+.gallery-section h2 { margin-bottom: 20px; font-size: 1.5rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.gallery-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+/* Distribución de la información principal */
+.info-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.info-block h2 { margin-bottom: 15px; font-size: 1.6rem; }
+.info-block p { font-size: 1.05rem; color: #4a5568; margin-bottom: 20px; text-align: justify; }
+
+/* Barra lateral de datos */
+.sidebar-block { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); height: fit-content; }
+.sticky-sidebar h3 { font-size: 1.1rem; margin-bottom: 15px; border-bottom: 2px solid #edf2f7; padding-bottom: 8px; }
+.useful-tips { list-style: none; margin-bottom: 25px; }
+.useful-tips li { font-size: 0.95rem; margin-bottom: 10px; color: #4a5568; }
+.address-box { font-size: 0.95rem; color: #718096; font-style: italic; margin-bottom: 15px; }
+
+/* Botón Mapas */
+.maps-action-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #2ecc71;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.maps-action-btn:hover { background: #27ae60; }
+
+/* ==========================================================================
+   5. PIE DE PÁGINA Y RESPONSIVE
+   ========================================================================== */
+.main-footer { background-color: #1a202c; color: #a0aec0; text-align: center; padding: 30px; font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+    .header-overlay h1 { font-size: 2.2rem; }
+    .category-nav { flex-wrap: wrap; }
+    .nav-btn { padding: 6px 12px; margin: 4px; font-size: 0.85rem; }
+    .grid-container { grid-template-columns: 1fr; }
+    .info-section { grid-template-columns: 1fr; gap: 30px; }
+    .detail-hero h1 { font-size: 1.9rem; }
+}
